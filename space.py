@@ -45,7 +45,8 @@ def rshipname():#48 names total
 	fact=['Atlantis','Blizzard','Discovery','Eagle','Endeavour','Falcon','Intrepid','Jules Verne','Odyssey','Orion','Unity']#IRL spacecraft, with Blizzard for Buran
 	navy=['Beagle']#boat names
 	leoshi=['Illumination','Journey','Destiny','Zenith','Nadir','Inner Circle','Arctic','Indespensible','Oversight','Aurora','Sensibility','Matchbox','Genesis','Terra','Order','Titan','Immortality','Singularity','Fusion','Normandy','Pantheon','Duke','Crossroads','Symphony','Star Maid','Horizon']
-	return random.choice(fict+fact+navy)
+	parasprite=['Ishimura']
+	return random.choice(fict+fact+navy+leoshi+parasprite)
 def roman(n):
 	if n<11:return ['0','I','II','III','IV','V','VI','VII','VIII','IX','X'][n]
 	return str(n)
