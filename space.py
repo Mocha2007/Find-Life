@@ -387,7 +387,7 @@ while 1:
 							dista=99
 							destinations=[]
 							for vessel in fleet:
-								destinations+=vessel[4]
+								destinations+=[vessel[4]]
 							for star in universe:
 								delta=finddistance(ship[4],star[0])
 								if star[0] not in surveyed and star[0] not in destinations and delta<dista:
