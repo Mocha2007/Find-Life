@@ -395,7 +395,7 @@ while 1:
 									dista=delta
 						#continue
 						if ship[2]>=propellantusage:
-							if vessel[1]/fuelusage/12<=finddistance(ship[4],dest)+finddistance(dest,home) and ship[2]>=propellantusage*2:#once they get there, they must be able to return immediately to the homeworld.
+							if ship[1]/fuelusage/12<=finddistance(ship[4],dest)+finddistance(dest,home) and ship[2]>=propellantusage*2:#once they get there, they must be able to return immediately to the homeworld.
 								input("Nice try, but the crew isn't going to go with a suicide mission!")
 								choice='l'
 							else:
@@ -424,7 +424,7 @@ while 1:
 						dest=input('Destination?\nr> ')
 						print(travelmap(universe,findname(ship[4],universe),findname(dest,universe)))
 						if ship[2]>=propellantusage:
-							if vessel[1]/fuelusage/12<=finddistance(ship[4],dest)+finddistance(dest,home) and ship[2]>=propellantusage*2:#once they get there, they must be able to return immediately to the homeworld.
+							if ship[1]/fuelusage/12<=finddistance(ship[4],dest)+finddistance(dest,home) and ship[2]>=propellantusage*2:#once they get there, they must be able to return immediately to the homeworld.
 								input("Nice try, but the crew isn't going to go with a suicide mission!")
 								choice='l'
 							else:
