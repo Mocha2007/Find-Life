@@ -415,6 +415,7 @@ while 1:
 								ship[2]=propellanttank
 								money-=cost
 							else:print('You cannot afford that!')
+							choice='l'
 						#otherwise (normal propellant/fuel checks can be ignored since the crew would be doomed anyways
 						else:
 							if ship[2]>=propellantusage:
@@ -448,7 +449,7 @@ while 1:
 							print('That system does not exist!')
 							choice='l'
 					#check to see if a breaking choice was chosen, break if so
-					if choice in 'IiNnSsTtXx':break
+					if choice in 'IiNnRrSsTtXx':break
 					choice=input('r> ')
 	#im p sure this is done now
 	open("f.sav", "w").write(str(fleet))
