@@ -422,17 +422,20 @@ while 1:
 						else:print(ship[4],'already surveyed!')
 					elif choice in 'Tt':
 						dest=input('Destination?\nr> ')
-						print(travelmap(universe,findname(ship[4],universe),findname(dest,universe)))
-						if ship[2]>=propellantusage:
-							if ship[1]/fuelusage/12<=finddistance(ship[4],dest)+finddistance(dest,home) and ship[2]>=propellantusage*2:#once they get there, they must be able to return immediately to the homeworld.
-								input("Nice try, but the crew isn't going to go with a suicide mission!")
-								choice='l'
-							else:
-								ship[2]-=propellantusage
-								ship[3]='travel'
-								ship[5]=ceil(12*finddistance(ship[4],dest))
-								ship[4]=dest
-						else:print('Not enough propellant!')
+						if dest in starlist:
+							print(travelmap(universe,findname(ship[4],universe),findname(dest,universe)))
+							if ship[2]>=propellantusage:
+								if ship[1]/fuelusage/12<=finddistance(ship[4],dest)+finddistance(dest,home) and ship[2]>=propellantusage*2:#once they get there, they must be able to return immediately to the homeworld.
+									input("Nice try, but the crew isn't going to go with a suicide mission!")
+									choice='l'
+								else:
+									ship[2]-=propellantusage
+									ship[3]='travel'
+									ship[5]=ceil(12*finddistance(ship[4],dest))
+									ship[4]=dest
+							else:print('Not enough propellant!')
+						else:
+							print('That system does not exist!')
 					#check to see if a breaking choice was chosen, break if so
 					if choice in 'IiNnSsTtXx':break
 					choice=input('r> ')
