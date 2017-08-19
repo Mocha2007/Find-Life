@@ -405,14 +405,24 @@ while 1:
 									ship[4]=dest
 							else:print('Not enough propellant!')
 					elif choice in 'Rr':
-						delta_fuel=fueltank-ship[1]
-						delta_propellant=propellanttank-ship[2]
-						cost=delta_fuel*fuelcost+delta_propellant*propellantcost
-						if cost<=money:
-							ship[1]=fueltank
-							ship[2]=propellanttank
-							money-=cost
-						else:print('You cannot afford that!')
+						#if ship @ home
+						if ship[4]==home:
+							delta_fuel=fueltank-ship[1]
+							delta_propellant=propellanttank-ship[2]
+							cost=delta_fuel*fuelcost+delta_propellant*propellantcost
+							if cost<=money:
+								ship[1]=fueltank
+								ship[2]=propellanttank
+								money-=cost
+							else:print('You cannot afford that!')
+						#otherwise (normal propellant/fuel checks can be ignored since the crew would be doomed anyways
+						else:
+							if ship[2]>=propellantusage:
+								ship[2]-=propellantusage
+								ship[3]='travel'
+								ship[5]=ceil(12*finddistance(ship[4],home))
+								ship[4]=home
+							else:print('Not enough propellant!')
 					if choice in 'Ss':
 						if ship[4] not in surveyed:
 							ship[3]='survey'
@@ -436,6 +446,7 @@ while 1:
 							else:print('Not enough propellant!')
 						else:
 							print('That system does not exist!')
+							choice='l'
 					#check to see if a breaking choice was chosen, break if so
 					if choice in 'IiNnSsTtXx':break
 					choice=input('r> ')
