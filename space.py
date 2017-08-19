@@ -203,9 +203,9 @@ def launch(shipyard):
 		name=rshipname()
 	return [name,5000,1000,'idle',shipyard,0]
 #some gameplay constants
-income=1e7
+income=1e9
 variance=5e6
-scienceshipcost=5e7
+scienceshipcost=5e9
 fuelcost=4e6#per kg, Pu-239
 propellantcost=3#per kg, H
 fueltank=5000#kg of fuel, this should last for 14 years. probably can't be much less than 50
@@ -231,7 +231,7 @@ fleet+=[launch(home)]#start with a free ship
 # else:
 	# fleet=ffff.replace("[", "").replace("]", "").split(', ')
 # if pppp=='':
-money=5e7
+money=5e9
 	# open("p.sav", "w").write(str(money))
 	# #NEEDS TO BE SAVED EVERY ROUND
 # else:
