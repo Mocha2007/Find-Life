@@ -390,7 +390,7 @@ while 1:
 								destinations+=vessel[4]
 							for star in universe:
 								delta=finddistance(ship[4],star[0])
-								if star[0] not in surveyed and not in destinations and delta<dista:
+								if star[0] not in surveyed and star[0] not in destinations and delta<dista:
 									dest=star[0]
 									dista=delta
 						#continue
