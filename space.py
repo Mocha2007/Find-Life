@@ -415,10 +415,12 @@ while 1:
 						if ship[2]>=propellantusage:
 							if vessel[1]/fuelusage/12<=finddistance(ship[4],dest)+finddistance(dest,home) and ship[2]>=propellantusage*2:#once they get there, they must be able to return immediately to the homeworld.
 								input("Nice try, but the crew isn't going to go with a suicide mission!")
-							ship[2]-=propellantusage
-							ship[3]='travel'
-							ship[5]=ceil(12*finddistance(ship[4],dest))
-							ship[4]=dest
+								choice='l'
+							else:
+								ship[2]-=propellantusage
+								ship[3]='travel'
+								ship[5]=ceil(12*finddistance(ship[4],dest))
+								ship[4]=dest
 						else:print('Not enough propellant!')
 					#check to see if a breaking choice was chosen, break if so
 					if choice in 'IiNnSsTtXx':break
