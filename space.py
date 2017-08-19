@@ -380,7 +380,7 @@ while 1:
 					elif choice in 'Nn':
 						#check if unserveyed
 						if ship[4] not in surveyed:
-							choice=4
+							choice='s'
 						#find closest system
 						else:
 							dest=''
