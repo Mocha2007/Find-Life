@@ -378,17 +378,21 @@ while 1:
 						for star in starlist:
 							print(star,round(finddistance(star,ship[4]),2))
 					elif choice in 'Nn':
+						#check if unserveyed
+						if ship[4] not in surveyed:
+							choice=4
 						#find such a system
-						dest=''
-						dista=99
-						destinations=[]
-						for vessel in fleet:
-							destinations+=vessel[4]
-						for star in universe:
-							delta=finddistance(ship[4],star[0])
-							if star[0] not in surveyed and not in destinations and delta<dista:
-								dest=star[0]
-								dista=delta
+						else:
+							dest=''
+							dista=99
+							destinations=[]
+							for vessel in fleet:
+								destinations+=vessel[4]
+							for star in universe:
+								delta=finddistance(ship[4],star[0])
+								if star[0] not in surveyed and not in destinations and delta<dista:
+									dest=star[0]
+									dista=delta
 						#continue
 						if ship[2]>=propellantusage:
 							ship[2]-=propellantusage
@@ -405,7 +409,7 @@ while 1:
 							ship[2]=propellanttank
 							money-=cost
 						else:print('You cannot afford that!')
-					elif choice in 'Ss':
+					if choice in 'Ss':
 						if ship[4] not in surveyed:
 							ship[3]='survey'
 							surveyed+=ship[4]
