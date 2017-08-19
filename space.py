@@ -343,7 +343,7 @@ while 1:
 		if ship[3]=='idle':
 			print(ship[0],'is',ship[3],'@',ship[4],'for the next',ship[5],'months.\nWould you like to change its orders? (y/n)')#actions = travel, survey
 			if input('r> ')=='y':
-				print('What should',ship[0],'do? It can:\n * (c)heck star database\n * (e)ncyclopedia\n * s(h)ip catalog\n * (i)dle\n * (l)ook at supplies\n * (m)ap\n * (r)estock\n * (s)urvey\n * (t)ravel / to (n)earest unsurveyed system\n * (x) cancel reassignment')
+				print('What should',ship[0],'do? It can:\n * (c)heck star database\n * (e)ncyclopedia\n * s(h)ip catalog\n * (i)dle\n * (l)ook at supplies\n * (m)ap\n * (r)estock\n * (s)urvey\n * (t)ravel / to (n)earest unsurveyed system\n * ($) available\n * (x) cancel reassignment')
 				choice=input('r> ')
 				while choice not in 'xX':
 					if choice in 'Ii':ship[3]='idle'
@@ -414,7 +414,7 @@ while 1:
 								ship[1]=fueltank
 								ship[2]=propellanttank
 								money-=cost
-							else:print('You cannot afford that!')
+							else:print('You cannot afford that! ( $',cost,'v. $',money,')')
 							choice='l'
 						#otherwise (normal propellant/fuel checks can be ignored since the crew would be doomed anyways
 						else:
@@ -448,6 +448,8 @@ while 1:
 						else:
 							print('That system does not exist!')
 							choice='l'
+					elif choice=='$':
+						print('$'+str(money))
 					#check to see if a breaking choice was chosen, break if so
 					if choice in 'IiNnRrSsTtXx':break
 					choice=input('r> ')
