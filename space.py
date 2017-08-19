@@ -287,17 +287,17 @@ while 1:
 			if eventid==1:
 				print('Turbulence!',ship[0],'has encountered a high concentration of debris from some sort of ancient interstellar collision. The shields need to be fully raised for the duration, and thus the ship loses an extra 100 fuel.')
 				ship[1]-=100
-			if eventid==2:
+			elif eventid==2:
 				print('Unusual Radiation!',ship[0],'has encountered an unusual beam of radiation nearly parallel to the path of the vessel. It is having an unusual but beneficial effect on the shields, saving 10 fuel.')
 				ship[1]+=10
-			if eventid==3:
+			elif eventid==3:
 				print('Friendly Asteroid!',ship[0],'has encountered a small asteroid following the ship in a vaguely parallel path, perhaps accidentally accelerated by an ancient alien spaceship millions of years ago. The crew was able, with some slight course corrections, to encounter it and mine some rarer metals. Lose a small amount of propellant and gain a large amount of cash.')
 				ship[2]-=10
 				money+=5e5
-			if eventid==4:
+			elif eventid==4:
 				print('Rogue Asteroid!',ship[0],'is about to encounter a rogue asteroid, which will cost a lot of propellant to dodge, and has a risk of colliding with the spacecraft. Vessel is saved if 1d6>2 and ship has enough propellant. Lose 200 kg propellant if successful.')
 				roll=d6()
-				print('1d6 =',roll)
+				print('1d6 =',roll,'& Propellant =',ship[2])
 				if roll in [1,2] or ship[2]<200:
 					ship=['DEAD',0,0,'suffer','hell',-1]
 				else:
