@@ -193,7 +193,14 @@ def travelmap(u,source,destination):
 	newmap=basemap[:sourceposition]+'O'+basemap[sourceposition+1:]
 	targetposition=(len(usize)+1)*(destination[2]+halflength)+(destination[3]+halflength)#IF YOU CHANGE USIZE THIS WILL BREAK!!!!!!!!!!!!!!!!!!
 	return newmap[:targetposition]+'X'+newmap[targetposition+1:]
-def launch(name,shipyard):
+def launch(shipyard):
+	fleetnames=[]
+	for vessel in fleet:
+		fleetnames+=[vessel[0]]
+	numeral=len(fleetnames)//22#22 = number of unique names
+	name=rshipname()
+	while name in fleetnames:
+		name=rshipname()
 	return [name,5000,1000,'idle',shipyard,0]
 #some gameplay constants
 income=1e7
@@ -217,7 +224,8 @@ open("u.sav", "w").write(str(universe))
 	# universe=uuuu.replace("[", "").replace("]", "").split(', ')
 # if ffff=='':#sample entry: ['Name',fuel,propellant,'action','target',timeremaining] actions ex. [...,'travel','dest.',2]
 home=findcenter(universe)
-fleet=[launch(rshipname(),home)]#start with a free ship
+fleet=[]
+fleet+=[launch(home)]#start with a free ship
 	# open("f.sav", "w").write(str(fleet))
 	# #NEEDS TO BE SAVED EVERY ROUND
 # else:
@@ -271,7 +279,7 @@ while 1:
 		print('Would you like to buy a ship? (cost = $'+str(scienceshipcost)+') (y/n)')
 		if input('r> ')=='y':
 			money-=scienceshipcost
-			fleet+=[launch(rshipname(),home)]
+			fleet+=[launch(home)]
 	#random interstellar encounters
 	for ship in fleet:
 		if ship[3]=='travel' and d20()==1:#will we have an encounter? 1d20
