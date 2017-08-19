@@ -395,10 +395,14 @@ while 1:
 									dista=delta
 						#continue
 						if ship[2]>=propellantusage:
-							ship[2]-=propellantusage
-							ship[3]='travel'
-							ship[5]=ceil(12*finddistance(ship[4],dest))
-							ship[4]=dest
+							if vessel[1]/fuelusage/12<=finddistance(ship[4],dest)+finddistance(dest,home) and ship[2]>=propellantusage*2:#once they get there, they must be able to return immediately to the homeworld.
+								input("Nice try, but the crew isn't going to go with a suicide mission!")
+								choice='l'
+							else:
+								ship[2]-=propellantusage
+								ship[3]='travel'
+								ship[5]=ceil(12*finddistance(ship[4],dest))
+								ship[4]=dest
 						else:print('Not enough propellant!')
 					elif choice in 'Rr':
 						delta_fuel=fueltank-ship[1]
