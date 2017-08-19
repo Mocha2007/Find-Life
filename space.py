@@ -381,7 +381,7 @@ while 1:
 						#check if unserveyed
 						if ship[4] not in surveyed:
 							choice=4
-						#find such a system
+						#find closest system
 						else:
 							dest=''
 							dista=99
@@ -393,17 +393,17 @@ while 1:
 								if star[0] not in surveyed and star[0] not in destinations and delta<dista:
 									dest=star[0]
 									dista=delta
-						#continue
-						if ship[2]>=propellantusage:
-							if ship[1]/fuelusage/12<=finddistance(ship[4],dest)+finddistance(dest,home) and ship[2]>=propellantusage*2:#once they get there, they must be able to return immediately to the homeworld.
-								input("Nice try, but the crew isn't going to go with a suicide mission!")
-								choice='l'
-							else:
-								ship[2]-=propellantusage
-								ship[3]='travel'
-								ship[5]=ceil(12*finddistance(ship[4],dest))
-								ship[4]=dest
-						else:print('Not enough propellant!')
+							#continue
+							if ship[2]>=propellantusage:
+								if ship[1]/fuelusage/12<=finddistance(ship[4],dest)+finddistance(dest,home) and ship[2]>=propellantusage*2:#once they get there, they must be able to return immediately to the homeworld.
+									input("Nice try, but the crew isn't going to go with a suicide mission!")
+									choice='l'
+								else:
+									ship[2]-=propellantusage
+									ship[3]='travel'
+									ship[5]=ceil(12*finddistance(ship[4],dest))
+									ship[4]=dest
+							else:print('Not enough propellant!')
 					elif choice in 'Rr':
 						delta_fuel=fueltank-ship[1]
 						delta_propellant=propellanttank-ship[2]
