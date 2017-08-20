@@ -20,6 +20,14 @@ for line in sfile:
 #the universe is a 20ly wide cube
 #~.0105 stars per cubic lightyear (1/95)
 #spacecraft travel at 0.9 c
+#ship names
+fict=['Endurance','Enterprise','Hedgehog','Liberty','Nostromo','Orville','Protector','Radiant Star','Serenity','Voyager']#Spacecraft in fictional works, and also the liberty which was the placeholder name
+fact=['Atlantis','Blizzard','Discovery','Eagle','Endeavour','Falcon','Intrepid','Jules Verne','Odyssey','Orion','Unity']#IRL spacecraft, with Blizzard for Buran
+navy=['Beagle','Bismarck']#boat names
+leoshi=['Illumination','Journey','Destiny','Zenith','Nadir','Inner Circle','Arctic','Indespensible','Oversight','Aurora','Sensibility','Matchbox','Genesis','Terra','Order','Titan','Immortality','Singularity','Fusion','Normandy','Pantheon','Duke','Crossroads','Symphony','Star Maid','Horizon']
+parasprite=['Ishimura']
+numberofnames=len(fict+fact+navy+leoshi+parasprite)
+#cont
 halflength=9
 usize=range(-halflength,halflength+1)
 def die(n,m,adj):
@@ -40,12 +48,7 @@ def isstar():
 def rname():
 	syllables=['mer','cu','ry','ve','nus','ter','ra','ju','pi','sa','turn','u','ra','nep','tun','ha','tsu','ne','mi','ku']
 	return random.choice(syllables)+random.choice(syllables)
-def rshipname():#48 names total
-	fict=['Endurance','Enterprise','Hedgehog','Liberty','Nostromo','Orville','Protector','Radiant Star','Serenity','Voyager']#Spacecraft in fictional works, and also the liberty which was the placeholder name
-	fact=['Atlantis','Blizzard','Discovery','Eagle','Endeavour','Falcon','Intrepid','Jules Verne','Odyssey','Orion','Unity']#IRL spacecraft, with Blizzard for Buran
-	navy=['Beagle']#boat names
-	leoshi=['Illumination','Journey','Destiny','Zenith','Nadir','Inner Circle','Arctic','Indespensible','Oversight','Aurora','Sensibility','Matchbox','Genesis','Terra','Order','Titan','Immortality','Singularity','Fusion','Normandy','Pantheon','Duke','Crossroads','Symphony','Star Maid','Horizon']
-	parasprite=['Ishimura']
+def rshipname():
 	return random.choice(fict+fact+navy+leoshi+parasprite)
 def roman(n):
 	if n<11:return ['0','I','II','III','IV','V','VI','VII','VIII','IX','X'][n]
@@ -199,7 +202,7 @@ def launch(shipyard):
 	fleetnames=[]
 	for vessel in fleet:
 		fleetnames+=[vessel[0]]
-	numeral=len(fleetnames)//48#48 = number of unique names
+	numeral=len(fleetnames)//numberofnames#numberofnames = number of unique names
 	name=rshipname()
 	while name in fleetnames:
 		name=rshipname()
