@@ -274,6 +274,8 @@ month=0
 #TEMPORARY DEBUG STUFF - COMMENT OUT ASAP
 #while 1:
 #	input(rshipname())
+#WELCOME
+print('Welcome to Find Life\nby Mocha\nVersion Alpha 1.1')
 #MAIN
 while 1:
 	month+=1
