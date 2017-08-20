@@ -1,21 +1,24 @@
 import random
 from math import ceil
-ufile=open("u.sav", "r")#universe
-ffile=open("f.sav", "r")#fleet
-pfile=open("p.sav", "r")#player money, stats, etc
-sfile=open("s.sav", "r")#surveyed
-uuuu=''
-ffff=''
-pppp=''
-ssss=''
-for line in ufile:
-	uuuu=line
-for line in ffile:
-	ffff=line
-for line in pfile:
-	pppp=line
-for line in sfile:
-	ssss=line
+try:
+	ufile=open("u.sav", "r")#universe
+	ffile=open("f.sav", "r")#fleet
+	pfile=open("p.sav", "r")#player money, stats, etc
+	sfile=open("s.sav", "r")#surveyed
+	uuuu=''
+	ffff=''
+	pppp=''
+	ssss=''
+	for line in ufile:
+		uuuu=line
+	for line in ffile:
+		ffff=line
+	for line in pfile:
+		pppp=line
+	for line in sfile:
+		ssss=line
+except:
+	pass
 #you are the head of science exploration of a galactic federation thing. you manage science ships looking for life, and you win if you find some. life exists on the homeworld (duh) and on exactly one other system.
 #the universe is a 20ly wide cube
 #~.0105 stars per cubic lightyear (1/95)
