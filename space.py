@@ -277,7 +277,8 @@ month=0
 #WELCOME
 print('Welcome to Find Life\nby Mocha\nVersion Alpha 1.1')
 #MAIN
-while 1:
+looking=1
+while looking:
 	month+=1
 	print('Year',month//12,'Month',month%12)
 	#begin main
@@ -335,7 +336,7 @@ while 1:
 			#return random.choice(['Organic chemical readings','Collision of two moons','Beautiful auroras','Contamination','Restless crew'])
 			if findname(ship[4],universe)[5]=='Microbes':
 				print('YOU WIN!')
-				crashthemotherfuckinggame()
+				looking=0
 			elif findname(ship[4],universe)[5]=='Organic chemical readings':
 				print('Your discovery of organic chemicals on another world, even despite life, has generated even more support for the program. Income is slightly increased.')
 				income+=1e6
@@ -348,6 +349,9 @@ while 1:
 				print('Some unknown chemical has infiltrated the',random.choice(['food','air','water']),'supply is causing the crew to be agitated and needs to be filtered out. Thankfully this is a very simple process, but it is energy-intensive and costs 50 fuel, however, the wages need to be increased to satisfy the crew.')
 				ship[1]-=50
 				income-=5e5
+	#break if done
+	if not looking:
+		break
 	#check if any ship is idling
 	for ship in fleet:
 		if ship[3]=='idle':
@@ -360,12 +364,15 @@ while 1:
 					elif choice in 'Cc':
 						print('Which star?')
 						star=findname(input('r> '),universe)
-						for point in range(len(stardesc)):
-							print(stardesc[point],star[point])
-						if star[0] in surveyed:
-							print('You surveyed this star already and found',star[5])
-						else:
-							print('You have not yet surveyed this star.')
+						try:
+							for point in range(len(stardesc)):
+								print(stardesc[point],star[point])
+							if star[0] in surveyed:
+								print('You surveyed this star already and found',star[5])
+							else:
+								print('You have not yet surveyed this star.')
+						except:
+							print('That star does not exist!')
 					elif choice in 'Ee':
 						item=input('Topic?\nr> ')
 						print(desc(item))
@@ -467,4 +474,3 @@ while 1:
 	open("f.sav", "w").write(str(fleet))
 	open("p.sav", "w").write(str(money))
 	open("s.sav", "w").write(str(surveyed))
-	#input('Prepare for next month!')
